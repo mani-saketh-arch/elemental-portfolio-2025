@@ -406,7 +406,7 @@ export default function Contact() {
 }
 
 // ============================================
-// ORBITAL SOCIAL LINKS
+// ORBITAL SOCIAL LINKS - MODIFIED (NO ROTATION ON HOVER)
 // ============================================
 function OrbitalSocialLinks({ mousePosition }) {
   const socialLinks = [
@@ -494,7 +494,7 @@ function OrbitalSocialLinks({ mousePosition }) {
         />
       ))}
 
-      {/* Orbiting Social Icons */}
+      {/* Orbiting Social Icons - MODIFIED: No rotation, stays upright */}
       {socialLinks.map((link, index) => {
         const Icon = link.icon;
         const radius = 200;
@@ -521,26 +521,14 @@ function OrbitalSocialLinks({ mousePosition }) {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="block relative group"
+              className="block relative group cursor-pointer"
               style={{
                 transform: `translate(-50%, -50%) translateY(-${radius}px)`,
               }}
-              whileHover={{ scale: 1.3 }}
-              whileTap={{ scale: 0.9 }}
               aria-label={link.name}
             >
-              {/* Magnetic pull effect */}
-              <motion.div
-                animate={{
-                  rotate: [-(link.angle), -(link.angle + 360)],
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: index * 0.5,
-                }}
-              >
+              {/* Icon container stays upright - no counter rotation */}
+              <div>
                 {/* Outer glow ring */}
                 <motion.div
                   className="absolute inset-0 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"
@@ -587,7 +575,7 @@ function OrbitalSocialLinks({ mousePosition }) {
                     transform: 'translate(-50%, -100%)',
                   }}
                 />
-              </motion.div>
+              </div>
             </motion.a>
           </motion.div>
         );
