@@ -1,5 +1,17 @@
-node_modules/
+# Next.js build output
 .next/
 out/
+
+# Node dependencies
+node_modules/
+
+# Python virtual environment
+venv/
+
+# Environment variables
 .env
+.env.local
+
+# System files
 .DS_Store
+Thumbs.db
